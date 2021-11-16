@@ -79,6 +79,15 @@ return require('packer').startup(function(use)
         end
     }
 
+    use {
+        'williamboman/nvim-lsp-installer',
+        config = function()
+            require('nvim-lsp-installer').on_server_ready(function(server)
+                server:setup{}
+            end)
+        end
+    }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
