@@ -10,13 +10,14 @@ return require('packer').startup(function(use)
             g.nvim_tree_quit_on_open = 1
             g.nvim_tree_indent_markers = 1
             g.nvim_tree_highlight_opened_files = 3
+            g.nvim_tree_group_empty = 1
             g.nvim_tree_disable_window_picker = 1
 
             require'nvim-tree'.setup {
                 open_on_setup = true,
                 auto_close = true,
                 view = {
-                    width = 32,
+                    width = 40,
                     auto_resize = true
                 }
             }
