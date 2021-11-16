@@ -5,5 +5,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
                                   install_path})
 end
 
+require('settings')
 require('keymaps')
 require('plugins')
