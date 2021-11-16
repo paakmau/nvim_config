@@ -74,10 +74,17 @@ return require('packer').startup(function(use)
     use {
         'neovim/nvim-lspconfig',
         config = function()
-            require('lspconfig').clangd.setup {}
-            require('lspconfig').cmake.setup {}
-            require('lspconfig').jdtls.setup {}
-            require('lspconfig').rust_analyzer.setup {}
+            local nvim_lsp = require('lspconfig')
+
+            -- Use a loop to conveniently call 'setup' on multiple servers
+            local servers = {'clangd', 'cmake', 'jdtls', 'rust_analyzer'}
+            for _, lsp in ipairs(servers) do
+                nvim_lsp[lsp].setup {
+                    flags = {
+                        debounce_text_changes = 500
+                    }
+                }
+            end
         end
     }
 
