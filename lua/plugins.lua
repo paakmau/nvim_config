@@ -77,7 +77,7 @@ return require('packer').startup(function(use)
             local nvim_lsp = require('lspconfig')
 
             -- Use a loop to conveniently call 'setup' on multiple servers
-            local servers = {'clangd', 'cmake', 'jdtls', 'rust_analyzer'}
+            local servers = {'clangd', 'cmake', 'jdtls', 'sumneko_lua', 'rust_analyzer'}
             for _, lsp in ipairs(servers) do
                 nvim_lsp[lsp].setup {
                     flags = {
