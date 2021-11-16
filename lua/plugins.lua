@@ -7,10 +7,12 @@ return require('packer').startup(function(use)
         requires = 'kyazdani42/nvim-web-devicons',
         config = function()
             vim.g.nvim_tree_quit_on_open = 1
-            vim.g.nvim_tree_highlight_opened_files = 1
+            vim.g.nvim_tree_highlight_opened_files = 3
             require'nvim-tree'.setup {
+                open_on_setup = true,
                 auto_close = true,
                 view = {
+                    width = 32,
                     auto_resize = true
                 }
             }
