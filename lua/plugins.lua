@@ -6,8 +6,11 @@ return require('packer').startup(function(use)
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
         config = function()
-            vim.g.nvim_tree_quit_on_open = 1
-            vim.g.nvim_tree_highlight_opened_files = 3
+            local g = vim.g
+            g.nvim_tree_quit_on_open = 1
+            g.nvim_tree_indent_markers = 1
+            g.nvim_tree_highlight_opened_files = 3
+
             require'nvim-tree'.setup {
                 open_on_setup = true,
                 auto_close = true,
