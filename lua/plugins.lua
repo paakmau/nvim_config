@@ -75,6 +75,8 @@ return require('packer').startup(function(use)
         'neovim/nvim-lspconfig',
         config = function()
             require('lspconfig').clangd.setup {}
+            require('lspconfig').cmake.setup {}
+            require('lspconfig').jdtls.setup {}
             require('lspconfig').rust_analyzer.setup {}
         end
     }
