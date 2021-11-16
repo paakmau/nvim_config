@@ -72,14 +72,62 @@ return require('packer').startup(function(use)
     }
 
     use {
+        'hrsh7th/nvim-cmp',
+        requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/vim-vsnip'},
+        config = function()
+            -- Setup nvim-cmp.
+            local cmp = require 'cmp'
+
+            cmp.setup({
+                snippet = {
+                    -- REQUIRED - you must specify a snippet engine
+                    expand = function(args)
+                        vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
+                        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                        -- vim.fn['UltiSnips#Anon'](args.body) -- For `ultisnips` users.
+                        -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+                    end
+                },
+                mapping = {
+                    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
+                    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
+                    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
+                    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+                    ['<C-e>'] = cmp.mapping({
+                        i = cmp.mapping.abort(),
+                        c = cmp.mapping.close()
+                    }),
+                    ['<CR>'] = cmp.mapping.confirm({
+                        select = true
+                    })
+                },
+                sources = cmp.config.sources({{
+                    name = 'nvim_lsp'
+                }, {
+                    name = 'buffer'
+                }, {
+                    name = 'path'
+                }, {
+                    name = 'vsnip'
+                }})
+            })
+        end
+    }
+
+    use {
         'neovim/nvim-lspconfig',
         config = function()
             local nvim_lsp = require('lspconfig')
+
+            -- Setup lspconfig.
+            local capabilities =
+                require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
             -- Use a loop to conveniently call 'setup' on multiple servers
             local servers = {'clangd', 'cmake', 'jdtls', 'sumneko_lua', 'rust_analyzer'}
             for _, lsp in ipairs(servers) do
                 nvim_lsp[lsp].setup {
+                    capabilities = capabilities,
                     flags = {
                         debounce_text_changes = 500
                     }
