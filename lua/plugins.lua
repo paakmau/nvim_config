@@ -71,6 +71,14 @@ return require('packer').startup(function(use)
         end
     }
 
+    use {
+        'neovim/nvim-lspconfig',
+        config = function()
+            require('lspconfig').clangd.setup {}
+            require('lspconfig').rust_analyzer.setup {}
+        end
+    }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
