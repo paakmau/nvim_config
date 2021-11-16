@@ -58,6 +58,18 @@ return require('packer').startup(function(use)
         end
     }
 
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        config = function()
+            require('nvim-treesitter.configs').setup {
+                ensure_installed = 'maintained',
+                highlight = {
+                    enable = true
+                }
+            }
+        end
+    }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
