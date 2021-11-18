@@ -3,6 +3,13 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
+        'folke/tokyonight.nvim',
+        config = function()
+            vim.cmd [[colorscheme tokyonight]]
+        end
+    }
+
+    use {
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
         config = function()
@@ -28,7 +35,9 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = 'kyazdani42/nvim-web-devicons',
         config = function()
-            require('lualine').setup {}
+            require('lualine').setup {
+                theme = 'tokyonight'
+            }
         end
     }
 
