@@ -141,7 +141,7 @@ return require('packer').startup(function(use)
         config = function()
             local lsp_installer_servers = require('nvim-lsp-installer.servers')
 
-            local servers = {{'clangd', {}}, {'cmake', {}}, {'jdtls', {}}, {'rust_analyzer', {}}}
+            local servers = {{'clangd', {}}, {'cmake', {}}, {'jdtls', {}}, {'sumneko_lua', {}}, {'rust_analyzer', {}}}
 
             for _, lsp in ipairs(servers) do
                 local server_available, requested_server = lsp_installer_servers.get_server(lsp[1])
