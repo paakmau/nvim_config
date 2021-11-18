@@ -12,5 +12,5 @@ opt.wrap = false
 opt.linebreak = true
 opt.breakindent = true
 
-vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
+opt.list = true
+opt.listchars:append('space:⋅')
