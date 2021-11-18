@@ -9,3 +9,5 @@ opt.tabstop = 4
 opt.number = true
 
 opt.wrap = false
+opt.linebreak = true
+opt.breakindent = true
