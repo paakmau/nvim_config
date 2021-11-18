@@ -72,6 +72,28 @@ return require('packer').startup(function(use)
     }
 
     use {
+        'neovim/nvim-lspconfig',
+        config = function()
+            local nvim_lsp = require('lspconfig')
+
+            -- Setup lspconfig.
+            local capabilities =
+                require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+            -- Use a loop to conveniently call 'setup' on multiple servers
+            local servers = {'clangd', 'cmake', 'jdtls', 'sumneko_lua', 'rust_analyzer'}
+            for _, lsp in ipairs(servers) do
+                nvim_lsp[lsp].setup {
+                    capabilities = capabilities,
+                    flags = {
+                        debounce_text_changes = 500
+                    }
+                }
+            end
+        end
+    }
+
+    use {
         'hrsh7th/nvim-cmp',
         requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/vim-vsnip'},
         config = function()
@@ -111,28 +133,6 @@ return require('packer').startup(function(use)
                     name = 'vsnip'
                 }})
             })
-        end
-    }
-
-    use {
-        'neovim/nvim-lspconfig',
-        config = function()
-            local nvim_lsp = require('lspconfig')
-
-            -- Setup lspconfig.
-            local capabilities =
-                require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-            -- Use a loop to conveniently call 'setup' on multiple servers
-            local servers = {'clangd', 'cmake', 'jdtls', 'sumneko_lua', 'rust_analyzer'}
-            for _, lsp in ipairs(servers) do
-                nvim_lsp[lsp].setup {
-                    capabilities = capabilities,
-                    flags = {
-                        debounce_text_changes = 500
-                    }
-                }
-            end
         end
     }
 
