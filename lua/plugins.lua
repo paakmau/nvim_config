@@ -32,6 +32,16 @@ return require('packer').startup(function(use)
     }
 
     use {
+        'akinsho/toggleterm.nvim',
+        config = function()
+            require('toggleterm').setup {
+                size = 12,
+                open_mapping = [[<C-\>]]
+            }
+        end
+    }
+
+    use {
         'nvim-lualine/lualine.nvim',
         requires = 'kyazdani42/nvim-web-devicons',
         config = function()
