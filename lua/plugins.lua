@@ -43,7 +43,7 @@ return require('packer').startup(function(use)
         config = function()
             require('toggleterm').setup {
                 size = 12,
-                open_mapping = [[<C-\>]]
+                open_mapping = [[<leader>t]]
             }
         end
     }
