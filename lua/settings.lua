@@ -2,6 +2,8 @@ local opt = vim.opt
 
 opt.termguicolors = true
 
+opt.cursorline = true
+
 opt.expandtab = true
 opt.shiftwidth = 4
 opt.tabstop = 4
