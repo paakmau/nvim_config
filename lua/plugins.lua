@@ -21,7 +21,6 @@ return require('packer').startup(function(use)
             g.nvim_tree_disable_window_picker = 1
 
             require'nvim-tree'.setup {
-                open_on_setup = true,
                 auto_close = true,
                 view = {
                     width = 40,
