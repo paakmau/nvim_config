@@ -18,7 +18,6 @@ map('n', '<leader>9', ':BufferLineGoToBuffer 9<CR>', opts)
 map('n', '<leader>q', ':bp<bar>sp<bar>bn<bar>bd<CR>', opts)
 
 map('t', '<esc>', [[<C-\><C-n>]], opts)
-map('t', 'jk', [[<C-\><C-n>]], opts)
 
 map('i', '<C-h>', [[<esc><C-W>h]], opts)
 map('i', '<C-j>', [[<esc><C-W>j]], opts)
