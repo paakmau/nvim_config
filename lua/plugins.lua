@@ -33,7 +33,15 @@ return require('packer').startup(function(use)
         'akinsho/bufferline.nvim',
         requires = 'kyazdani42/nvim-web-devicons',
         config = function()
-            require('bufferline').setup {}
+            require('bufferline').setup {
+                options = {
+                    offsets = {{
+                        filetype = "NvimTree",
+                        text = "File Explorer",
+                        highlight = "Directory"
+                    }}
+                }
+            }
         end
     }
 
