@@ -31,6 +31,14 @@ return require('packer').startup(function(use)
     }
 
     use {
+        'akinsho/bufferline.nvim',
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function()
+            require('bufferline').setup {}
+        end
+    }
+
+    use {
         'akinsho/toggleterm.nvim',
         config = function()
             require('toggleterm').setup {
