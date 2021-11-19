@@ -3,7 +3,7 @@ local opts = {
     noremap = true
 }
 
-map('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
+map('n', '<leader>e', ':NvimTreeFocus<CR>', opts)
 
 map('n', '<leader>1', ':BufferLineGoToBuffer 1<CR>', opts)
 map('n', '<leader>2', ':BufferLineGoToBuffer 2<CR>', opts)
