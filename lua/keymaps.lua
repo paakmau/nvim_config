@@ -1,4 +1,6 @@
 local map = vim.api.nvim_set_keymap
-map('n', '<Leader>e', ':NvimTreeToggle<CR>', {
+local opts = {
     noremap = true
-})
+}
+
+map('n', '<Leader>e', ':NvimTreeToggle<CR>', opts)
