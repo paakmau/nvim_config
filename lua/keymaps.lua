@@ -3,7 +3,7 @@ local opts = {
     noremap = true
 }
 
-map('n', '<Leader>e', ':NvimTreeToggle<CR>', opts)
+map('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
 
 map('t', '<esc>', [[<C-\><C-n>]], opts)
 map('t', 'jk', [[<C-\><C-n>]], opts)
