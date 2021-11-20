@@ -76,6 +76,18 @@ return require("packer").startup(function(use)
     })
 
     use({
+        "famiu/bufdelete.nvim",
+        config = function()
+            local map = vim.api.nvim_set_keymap
+            local opts = {
+                noremap = true,
+            }
+
+            map("n", "<leader>q", ":Bdelete<CR>", opts)
+        end,
+    })
+
+    use({
         "akinsho/toggleterm.nvim",
         config = function()
             require("toggleterm").setup({

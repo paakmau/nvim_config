@@ -3,8 +3,6 @@ local opts = {
     noremap = true,
 }
 
-map("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
-
 map("t", "<esc>", [[<C-\><C-n>]], opts)
 
 map("i", "<C-h>", [[<esc><C-W>h]], opts)
