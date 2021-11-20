@@ -1,25 +1,25 @@
-return require('packer').startup(function(use)
+return require("packer").startup(function(use)
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+    use("wbthomason/packer.nvim")
 
-    use {
-        'folke/tokyonight.nvim',
+    use({
+        "folke/tokyonight.nvim",
         config = function()
-            vim.cmd [[colorscheme tokyonight]]
-        end
-    }
+            vim.cmd([[colorscheme tokyonight]])
+        end,
+    })
 
-    use {
-        'goolord/alpha-nvim',
-        requires = {'kyazdani42/nvim-web-devicons'},
+    use({
+        "goolord/alpha-nvim",
+        requires = { "kyazdani42/nvim-web-devicons" },
         config = function()
-            require'alpha'.setup(require'alpha.themes.startify'.opts)
-        end
-    }
+            require("alpha").setup(require("alpha.themes.startify").opts)
+        end,
+    })
 
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons',
+    use({
+        "kyazdani42/nvim-tree.lua",
+        requires = "kyazdani42/nvim-web-devicons",
         config = function()
             local g = vim.g
             g.nvim_tree_indent_markers = 1
@@ -27,110 +27,115 @@ return require('packer').startup(function(use)
             g.nvim_tree_group_empty = 1
             g.nvim_tree_disable_window_picker = 1
 
-            require'nvim-tree'.setup {
+            require("nvim-tree").setup({
                 view = {
                     width = 40,
-                    auto_resize = true
-                }
-            }
-        end
-    }
+                    auto_resize = true,
+                },
+            })
+        end,
+    })
 
-    use {
-        'akinsho/bufferline.nvim',
-        requires = 'kyazdani42/nvim-web-devicons',
+    use({
+        "akinsho/bufferline.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
         config = function()
-            require('bufferline').setup {
+            require("bufferline").setup({
                 options = {
-                    offsets = {{
-                        filetype = 'NvimTree',
-                        text = 'File Explorer',
-                        highlight = 'Directory'
-                    }},
+                    offsets = {
+                        {
+                            filetype = "NvimTree",
+                            text = "File Explorer",
+                            highlight = "Directory",
+                        },
+                    },
                     show_buffer_close_icons = false,
                     show_close_icon = false,
-                    always_show_bufferline = false
-                }
-            }
-        end
-    }
+                    always_show_bufferline = false,
+                },
+            })
+        end,
+    })
 
-    use {
-        'akinsho/toggleterm.nvim',
+    use({
+        "akinsho/toggleterm.nvim",
         config = function()
-            require('toggleterm').setup {
+            require("toggleterm").setup({
                 size = 12,
                 open_mapping = [[<leader>t]],
-                insert_mappings = false
-            }
-        end
-    }
+                insert_mappings = false,
+            })
+        end,
+    })
 
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = 'kyazdani42/nvim-web-devicons',
+    use({
+        "nvim-lualine/lualine.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
         config = function()
-            require('lualine').setup {
-                theme = 'tokyonight'
-            }
-        end
-    }
+            require("lualine").setup({
+                theme = "tokyonight",
+            })
+        end,
+    })
 
-    use {
+    use({
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
         config = function()
-            require("todo-comments").setup {}
-        end
-    }
+            require("todo-comments").setup({})
+        end,
+    })
 
-    use {
-        'lewis6991/gitsigns.nvim',
-        requires = 'nvim-lua/plenary.nvim',
+    use({
+        "lewis6991/gitsigns.nvim",
+        requires = "nvim-lua/plenary.nvim",
         config = function()
-            require('gitsigns').setup {
-                current_line_blame = true
-            }
-        end
-    }
+            require("gitsigns").setup({
+                current_line_blame = true,
+            })
+        end,
+    })
 
-    use {
-        'lukas-reineke/indent-blankline.nvim',
+    use({
+        "lukas-reineke/indent-blankline.nvim",
         config = function()
-            require('indent_blankline').setup {
+            require("indent_blankline").setup({
                 use_treesitter = true,
                 show_trailing_blankline_indent = false,
-                filetype_exclude = {'help', 'git', 'markdown', 'text', 'terminal', 'lspinfo', 'packer'},
-                buftype_exclude = {'terminal', 'nofile'}
-            }
-        end
-    }
+                filetype_exclude = { "help", "git", "markdown", "text", "terminal", "lspinfo", "packer" },
+                buftype_exclude = { "terminal", "nofile" },
+            })
+        end,
+    })
 
-    use {
-        'windwp/nvim-autopairs',
+    use({
+        "windwp/nvim-autopairs",
         config = function()
-            require('nvim-autopairs').setup {}
-        end
-    }
+            require("nvim-autopairs").setup({})
+        end,
+    })
 
-    use {
-        'nvim-treesitter/nvim-treesitter',
+    use({
+        "nvim-treesitter/nvim-treesitter",
         config = function()
-            require('nvim-treesitter.configs').setup {
-                ensure_installed = 'maintained',
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = "maintained",
                 highlight = {
-                    enable = true
-                }
-            }
-        end
-    }
+                    enable = true,
+                },
+            })
+        end,
+    })
 
-    use {
-        'williamboman/nvim-lsp-installer',
+    use({
+        "williamboman/nvim-lsp-installer",
         config = function()
-            local lsp_installer_servers = require('nvim-lsp-installer.servers')
+            local lsp_installer_servers = require("nvim-lsp-installer.servers")
 
-            local servers = {{'clangd', {}}, {'cmake', {}}, {'jdtls', {}}, {'sumneko_lua', {}}, {'rust_analyzer', {}}}
+            local servers = { { "clangd", {} }, { "cmake", {} }, { "jdtls", {} }, { "sumneko_lua", {} }, {
+                "rust_analyzer",
+                {},
+            } }
 
             for _, lsp in ipairs(servers) do
                 local server_available, requested_server = lsp_installer_servers.get_server(lsp[1])
@@ -144,92 +149,99 @@ return require('packer').startup(function(use)
                     end
                 end
             end
+        end,
+    })
 
-        end
-    }
-
-    use {
-        'neovim/nvim-lspconfig',
+    use({
+        "neovim/nvim-lspconfig",
         config = function()
-            local nvim_lsp = require('lspconfig')
+            local nvim_lsp = require("lspconfig")
 
             -- Setup lspconfig.
-            local capabilities =
-                require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+            local capabilities = require("cmp_nvim_lsp").update_capabilities(
+                vim.lsp.protocol.make_client_capabilities()
+            )
 
             -- Use a loop to conveniently call 'setup' on multiple servers
-            local servers = {'clangd', 'cmake', 'jdtls', 'sumneko_lua', 'rust_analyzer'}
+            local servers = { "clangd", "cmake", "jdtls", "sumneko_lua", "rust_analyzer" }
             for _, lsp in ipairs(servers) do
-                nvim_lsp[lsp].setup {
+                nvim_lsp[lsp].setup({
                     capabilities = capabilities,
                     flags = {
-                        debounce_text_changes = 500
-                    }
-                }
+                        debounce_text_changes = 500,
+                    },
+                })
             end
-        end
-    }
+        end,
+    })
 
-    use {
-        'hrsh7th/nvim-cmp',
-        requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/vim-vsnip'},
+    use({
+        "hrsh7th/nvim-cmp",
+        requires = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "hrsh7th/vim-vsnip" },
         config = function()
             -- Setup nvim-cmp.
-            local cmp = require 'cmp'
+            local cmp = require("cmp")
 
             cmp.setup({
                 snippet = {
                     -- REQUIRED - you must specify a snippet engine
                     expand = function(args)
-                        vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
-                    end
+                        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+                    end,
                 },
                 mapping = {
-                    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
-                    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
-                    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
-                    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-                    ['<C-e>'] = cmp.mapping({
+                    ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+                    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+                    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+                    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+                    ["<C-e>"] = cmp.mapping({
                         i = cmp.mapping.abort(),
-                        c = cmp.mapping.close()
+                        c = cmp.mapping.close(),
                     }),
-                    ['<CR>'] = cmp.mapping.confirm({
-                        select = true
-                    })
+                    ["<CR>"] = cmp.mapping.confirm({
+                        select = true,
+                    }),
                 },
-                sources = cmp.config.sources({{
-                    name = 'nvim_lsp'
-                }, {
-                    name = 'buffer'
-                }, {
-                    name = 'path'
-                }, {
-                    name = 'vsnip'
-                }})
+                sources = cmp.config.sources({
+                    {
+                        name = "nvim_lsp",
+                    },
+                    {
+                        name = "buffer",
+                    },
+                    {
+                        name = "path",
+                    },
+                    {
+                        name = "vsnip",
+                    },
+                }),
             })
-        end
-    }
+        end,
+    })
 
     use({
-        'mhartington/formatter.nvim',
+        "mhartington/formatter.nvim",
         config = function()
-            require('formatter').setup({
+            require("formatter").setup({
                 filetype = {
-                    lua = {function()
-                        return {
-                            exe = 'stylua',
-                            args = {'--indent-type', 'Spaces', '-'},
-                            stdin = true
-                        }
-                    end}
-                }
+                    lua = {
+                        function()
+                            return {
+                                exe = "stylua",
+                                args = { "--indent-type", "Spaces", "-" },
+                                stdin = true,
+                            }
+                        end,
+                    },
+                },
             })
-        end
+        end,
     })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
-        require('packer').sync()
+        require("packer").sync()
     end
 end)

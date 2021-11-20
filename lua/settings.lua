@@ -15,6 +15,6 @@ opt.linebreak = true
 opt.breakindent = true
 
 opt.list = true
-opt.listchars:append('space:⋅')
+opt.listchars:append("space:⋅")
 
 opt.hidden = true
