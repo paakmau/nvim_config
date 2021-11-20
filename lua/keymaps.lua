@@ -15,6 +15,8 @@ map("n", "<leader>7", ":BufferLineGoToBuffer 7<CR>", opts)
 map("n", "<leader>8", ":BufferLineGoToBuffer 8<CR>", opts)
 map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", opts)
 
+map("n", "<leader>F", ":Format<CR>", opts)
+
 map("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 
 map("t", "<esc>", [[<C-\><C-n>]], opts)
