@@ -79,6 +79,22 @@ return require("packer").startup(function(use)
     })
 
     use({
+        "nvim-telescope/telescope.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            local map = vim.api.nvim_set_keymap
+            local opts = {
+                noremap = true,
+            }
+
+            map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
+            map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
+            map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
+            map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
+        end,
+    })
+
+    use({
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
         config = function()
