@@ -27,6 +27,12 @@ return require("packer").startup(function(use)
             g.nvim_tree_group_empty = 1
             g.nvim_tree_disable_window_picker = 1
 
+            local map = vim.api.nvim_set_keymap
+            local opts = {
+                noremap = true,
+            }
+            map("n", "<leader>e", ":NvimTreeFocus<CR>", opts)
+
             require("nvim-tree").setup({
                 view = {
                     width = 40,
@@ -40,6 +46,20 @@ return require("packer").startup(function(use)
         "akinsho/bufferline.nvim",
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
+            local map = vim.api.nvim_set_keymap
+            local opts = {
+                noremap = true,
+            }
+            map("n", "<leader>1", ":BufferLineGoToBuffer 1<CR>", opts)
+            map("n", "<leader>2", ":BufferLineGoToBuffer 2<CR>", opts)
+            map("n", "<leader>3", ":BufferLineGoToBuffer 3<CR>", opts)
+            map("n", "<leader>4", ":BufferLineGoToBuffer 4<CR>", opts)
+            map("n", "<leader>5", ":BufferLineGoToBuffer 5<CR>", opts)
+            map("n", "<leader>6", ":BufferLineGoToBuffer 6<CR>", opts)
+            map("n", "<leader>7", ":BufferLineGoToBuffer 7<CR>", opts)
+            map("n", "<leader>8", ":BufferLineGoToBuffer 8<CR>", opts)
+            map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", opts)
+
             require("bufferline").setup({
                 options = {
                     offsets = {
@@ -245,6 +265,12 @@ return require("packer").startup(function(use)
     use({
         "mhartington/formatter.nvim",
         config = function()
+            local map = vim.api.nvim_set_keymap
+            local opts = {
+                noremap = true,
+            }
+            map("n", "<leader>F", ":Format<CR>", opts)
+
             require("formatter").setup({
                 filetype = {
                     cpp = {
