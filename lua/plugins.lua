@@ -237,7 +237,6 @@ return require("packer").startup(function(use)
                                 exe = "clang-format",
                                 args = { "--assume-filename", vim.api.nvim_buf_get_name(0) },
                                 stdin = true,
-                                cwd = vim.fn.expand("%:p:h"),
                             }
                         end,
                     },
@@ -247,7 +246,7 @@ return require("packer").startup(function(use)
                                 exe = "./gradlew",
                                 args = {
                                     "spotlessApply",
-                                    "-PspotlessIdeHook="..vim.fn.expand("%:p"),
+                                    "-PspotlessIdeHook=" .. vim.fn.expand("%:p"),
                                     "-PspotlessIdeHookUseStdIn",
                                     "-PspotlessIdeHookUseStdOut",
                                     "--quiet",
