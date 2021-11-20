@@ -241,6 +241,21 @@ return require("packer").startup(function(use)
                             }
                         end,
                     },
+                    java = {
+                        function()
+                            return {
+                                exe = "./gradlew",
+                                args = {
+                                    "spotlessApply",
+                                    "-PspotlessIdeHook="..vim.fn.expand("%:p"),
+                                    "-PspotlessIdeHookUseStdIn",
+                                    "-PspotlessIdeHookUseStdOut",
+                                    "--quiet",
+                                },
+                                stdin = true,
+                            }
+                        end,
+                    },
                     lua = {
                         function()
                             return {
