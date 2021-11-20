@@ -129,6 +129,7 @@ return require("packer").startup(function(use)
             map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
             map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
             map("n", "<leader>fp", "<cmd>Telescope projects<CR>", opts)
+            map("n", "<leader>fc", "<cmd>Telescope commands<CR>", opts)
 
             require("telescope").load_extension("projects")
         end,
