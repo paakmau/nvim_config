@@ -105,6 +105,13 @@ return require("packer").startup(function(use)
     })
 
     use({
+        "ahmedkhalf/project.nvim",
+        config = function()
+            require("project_nvim").setup({})
+        end,
+    })
+
+    use({
         "nvim-telescope/telescope.nvim",
         requires = "nvim-lua/plenary.nvim",
         config = function()
