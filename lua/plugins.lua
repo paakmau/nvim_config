@@ -249,6 +249,15 @@ return require("packer").startup(function(use)
                             }
                         end,
                     },
+                    sh = {
+                        function()
+                            return {
+                                exe = "shfmt",
+                                args = { "-i", 2 },
+                                stdin = true,
+                            }
+                        end,
+                    },
                 },
             })
         end,
