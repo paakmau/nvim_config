@@ -35,7 +35,7 @@ return require("packer").startup(function(use)
 
             require("nvim-tree").setup({
                 view = {
-                    width = 40,
+                    width = 37,
                     auto_resize = true,
                 },
             })
