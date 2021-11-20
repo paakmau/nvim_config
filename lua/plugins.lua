@@ -26,6 +26,7 @@ return require("packer").startup(function(use)
             g.nvim_tree_highlight_opened_files = 3
             g.nvim_tree_group_empty = 1
             g.nvim_tree_disable_window_picker = 1
+            g.nvim_tree_respect_buf_cwd = 1
 
             local map = vim.api.nvim_set_keymap
             local opts = {
@@ -34,6 +35,11 @@ return require("packer").startup(function(use)
             map("n", "<leader>e", ":NvimTreeFocus<CR>", opts)
 
             require("nvim-tree").setup({
+                update_cwd = true,
+                update_focused_file = {
+                    enable = true,
+                    update_cwd = true,
+                },
                 view = {
                     width = 37,
                     auto_resize = true,
