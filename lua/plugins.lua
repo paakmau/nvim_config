@@ -185,9 +185,10 @@ return require("packer").startup(function(use)
             local opts = {
                 noremap = true,
             }
-            map("n", "<leader>gg", "<cmd>Neogit kind=vsplit<CR>", opts)
+            map("n", "<leader>g", "<cmd>Neogit kind=vsplit<CR>", opts)
 
             require("neogit").setup({
+                disable_commit_confirmation = true,
                 integrations = {
                     diffview = true,
                 },
