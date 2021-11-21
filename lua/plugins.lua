@@ -64,6 +64,19 @@ return require("packer").startup(function(use)
 
             require("bufferline").setup({
                 options = {
+                    custom_filter = function(buf_number)
+                        local buf_name = vim.fn.bufname(buf_number)
+
+                        if string.find(buf_name, "^(Neogit.*)$") then
+                            return false
+                        end
+
+                        if string.find(buf_name, "^(\\.git/COMMIT_EDITMSG)$") then
+                            return false
+                        end
+
+                        return true
+                    end,
                     offsets = {
                         {
                             filetype = "NvimTree",
