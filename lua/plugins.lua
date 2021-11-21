@@ -162,6 +162,8 @@ return require("packer").startup(function(use)
         end,
     })
 
+    use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
+
     use({
         "lukas-reineke/indent-blankline.nvim",
         config = function()
