@@ -162,7 +162,23 @@ return require("packer").startup(function(use)
         end,
     })
 
-    use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
+    use({
+        "TimUntersberger/neogit",
+        requires = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim" },
+        config = function()
+            local map = vim.api.nvim_set_keymap
+            local opts = {
+                noremap = true,
+            }
+            map("n", "<leader>gg", "<cmd>Neogit kind=vsplit<CR>", opts)
+
+            require("neogit").setup({
+                integrations = {
+                    diffview = true,
+                },
+            })
+        end,
+    })
 
     use({
         "lukas-reineke/indent-blankline.nvim",
