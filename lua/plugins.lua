@@ -249,6 +249,7 @@ return require("packer").startup(function(use)
 
     use({
         "williamboman/nvim-lsp-installer",
+        after = "nvim-lspconfig",
         config = function()
             local lsp_installer_servers = require("nvim-lsp-installer.servers")
 
