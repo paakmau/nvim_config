@@ -29,7 +29,6 @@ return require("packer").startup({
                 map("n", "<leader>e", ":NvimTreeToggle<CR>:NvimTreeRefresh<CR>", opts)
 
                 require("nvim-tree").setup({
-                    auto_close = true,
                     update_cwd = true,
                     update_focused_file = {
                         enable = true,
