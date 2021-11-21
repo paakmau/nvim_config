@@ -25,7 +25,7 @@ return require("packer").startup(function(use)
             local opts = {
                 noremap = true,
             }
-            map("n", "<leader>e", ":NvimTreeFocus<CR>", opts)
+            map("n", "<leader>e", ":NvimTreeFocus<CR>:NvimTreeRefresh<CR>", opts)
 
             require("nvim-tree").setup({
                 auto_close = true,
@@ -99,7 +99,7 @@ return require("packer").startup(function(use)
                 noremap = true,
             }
 
-            map("n", "<leader>q", ":Bdelete<CR>", opts)
+            map("n", "<leader>q", ":Bdelete<CR>:NvimTreeRefresh<CR>", opts)
         end,
     })
 
