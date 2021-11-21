@@ -51,19 +51,19 @@ return require("packer").startup({
                 local opts = {
                     noremap = true,
                 }
-                map("n", "<leader>h", ":BufferLineCyclePrev<CR>", opts)
-                map("n", "<leader>l", ":BufferLineCycleNext<CR>", opts)
-                map("n", "<leader>H", ":BufferLineMovePrev<CR>", opts)
-                map("n", "<leader>L", ":BufferLineMoveNext<CR>", opts)
-                map("n", "<leader>1", ":BufferLineGoToBuffer 1<CR>", opts)
-                map("n", "<leader>2", ":BufferLineGoToBuffer 2<CR>", opts)
-                map("n", "<leader>3", ":BufferLineGoToBuffer 3<CR>", opts)
-                map("n", "<leader>4", ":BufferLineGoToBuffer 4<CR>", opts)
-                map("n", "<leader>5", ":BufferLineGoToBuffer 5<CR>", opts)
-                map("n", "<leader>6", ":BufferLineGoToBuffer 6<CR>", opts)
-                map("n", "<leader>7", ":BufferLineGoToBuffer 7<CR>", opts)
-                map("n", "<leader>8", ":BufferLineGoToBuffer 8<CR>", opts)
-                map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", opts)
+                map("n", "<leader>bh", ":BufferLineCyclePrev<CR>", opts)
+                map("n", "<leader>bl", ":BufferLineCycleNext<CR>", opts)
+                map("n", "<leader>bH", ":BufferLineMovePrev<CR>", opts)
+                map("n", "<leader>bL", ":BufferLineMoveNext<CR>", opts)
+                map("n", "<leader>b1", ":BufferLineGoToBuffer 1<CR>", opts)
+                map("n", "<leader>b2", ":BufferLineGoToBuffer 2<CR>", opts)
+                map("n", "<leader>b3", ":BufferLineGoToBuffer 3<CR>", opts)
+                map("n", "<leader>b4", ":BufferLineGoToBuffer 4<CR>", opts)
+                map("n", "<leader>b5", ":BufferLineGoToBuffer 5<CR>", opts)
+                map("n", "<leader>b6", ":BufferLineGoToBuffer 6<CR>", opts)
+                map("n", "<leader>b7", ":BufferLineGoToBuffer 7<CR>", opts)
+                map("n", "<leader>b8", ":BufferLineGoToBuffer 8<CR>", opts)
+                map("n", "<leader>b9", ":BufferLineGoToBuffer 9<CR>", opts)
 
                 require("bufferline").setup({
                     options = {
@@ -100,7 +100,7 @@ return require("packer").startup({
                     noremap = true,
                 }
 
-                map("n", "<leader>q", ":Bdelete<CR>:NvimTreeRefresh<CR>", opts)
+                map("n", "<leader>bq", ":Bdelete<CR>:NvimTreeRefresh<CR>", opts)
             end,
         })
 
