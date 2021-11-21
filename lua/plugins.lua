@@ -83,13 +83,6 @@ return require("packer").startup(function(use)
 
                         return true
                     end,
-                    offsets = {
-                        {
-                            filetype = "NvimTree",
-                            text = "File Explorer",
-                            highlight = "Directory",
-                        },
-                    },
                     show_buffer_close_icons = false,
                     show_close_icon = false,
                     always_show_bufferline = true,
