@@ -77,6 +77,10 @@ return require("packer").startup(function(use)
                             return false
                         end
 
+                        if string.find(buf_name, "^(%[Command Line%])$") then
+                            return false
+                        end
+
                         return true
                     end,
                     offsets = {
