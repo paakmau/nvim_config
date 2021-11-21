@@ -14,6 +14,7 @@ return require("packer").startup(function(use)
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
             local g = vim.g
+            g.nvim_tree_quit_on_open = 1
             g.nvim_tree_indent_markers = 1
             g.nvim_tree_highlight_opened_files = 3
             g.nvim_tree_group_empty = 1
@@ -27,6 +28,7 @@ return require("packer").startup(function(use)
             map("n", "<leader>e", ":NvimTreeFocus<CR>", opts)
 
             require("nvim-tree").setup({
+                auto_close = true,
                 update_cwd = true,
                 update_focused_file = {
                     enable = true,
