@@ -26,7 +26,7 @@ return require("packer").startup({
                 local opts = {
                     noremap = true,
                 }
-                map("n", "<leader>e", ":NvimTreeToggle<CR>:NvimTreeRefresh<CR>", opts)
+                map("n", "<leader>e", ":NvimTreeFocus<CR>:NvimTreeRefresh<CR>", opts)
 
                 require("nvim-tree").setup({
                     update_cwd = true,
