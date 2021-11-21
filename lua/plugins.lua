@@ -71,7 +71,7 @@ return require("packer").startup(function(use)
                             return false
                         end
 
-                        if string.find(buf_name, "^(\\.git/COMMIT_EDITMSG)$") then
+                        if string.find(buf_name, "^(%.git/NEOGIT_COMMIT_EDITMSG)$") then
                             return false
                         end
 
