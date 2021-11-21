@@ -48,6 +48,10 @@ return require("packer").startup(function(use)
             local opts = {
                 noremap = true,
             }
+            map("n", "<leader>h", ":BufferLineCyclePrev<CR>", opts)
+            map("n", "<leader>l", ":BufferLineCycleNext<CR>", opts)
+            map("n", "<leader>H", ":BufferLineMovePrev<CR>", opts)
+            map("n", "<leader>L", ":BufferLineMoveNext<CR>", opts)
             map("n", "<leader>1", ":BufferLineGoToBuffer 1<CR>", opts)
             map("n", "<leader>2", ":BufferLineGoToBuffer 2<CR>", opts)
             map("n", "<leader>3", ":BufferLineGoToBuffer 3<CR>", opts)
