@@ -151,6 +151,13 @@ return require("packer").startup({
                 map("n", "<leader>fc", "<cmd>Telescope commands<CR>", opts)
 
                 require("telescope").setup({
+                    defaults = {
+                        mappings = {
+                            n = {
+                                ["q"] = "close",
+                            },
+                        },
+                    },
                     extensions = {
                         fzf = {
                             fuzzy = true, -- false will only do exact matching
