@@ -3,6 +3,8 @@ local opts = {
     noremap = true,
 }
 
+vim.g.mapleader = ','
+
 map("t", "<esc>", [[<C-\><C-n>]], opts)
 
 map("i", "<C-h>", [[<esc><C-W>h]], opts)
