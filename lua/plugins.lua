@@ -110,7 +110,6 @@ return require("packer").startup({
                     size = 12,
                     open_mapping = [[<leader>t]],
                     insert_mappings = false,
-                    direction = "float",
                 })
             end,
         })
