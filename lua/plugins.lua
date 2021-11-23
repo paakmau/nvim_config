@@ -421,6 +421,32 @@ return require("packer").startup({
             end,
         })
 
+        use({
+            "mfussenegger/nvim-dap",
+        })
+
+        use({
+            "rcarriga/nvim-dap-ui",
+            requires = { "mfussenegger/nvim-dap" },
+            config = function()
+                require("dapui").setup()
+            end,
+        })
+
+        use({
+            "Pocco81/DAPInstall.nvim",
+            config = function()
+                require("dap-install").setup()
+
+                local dap_install = require("dap-install")
+                local dbg_list = require("dap-install.api.debuggers").get_installed_debuggers()
+
+                for _, debugger in ipairs(dbg_list) do
+                    dap_install.config(debugger)
+                end
+            end,
+        })
+
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
         if packer_bootstrap then
