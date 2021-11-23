@@ -30,9 +30,7 @@ return require("packer").startup({
                 g.nvim_tree_respect_buf_cwd = 1
 
                 local map = vim.api.nvim_set_keymap
-                local opts = {
-                    noremap = true,
-                }
+                local opts = { noremap = true }
                 map("n", "<leader>e", ":NvimTreeFocus<CR>:NvimTreeRefresh<CR>", opts)
 
                 require("nvim-tree").setup({
@@ -54,9 +52,7 @@ return require("packer").startup({
             requires = "kyazdani42/nvim-web-devicons",
             config = function()
                 local map = vim.api.nvim_set_keymap
-                local opts = {
-                    noremap = true,
-                }
+                local opts = { noremap = true }
                 map("n", "<leader>p", ":BufferLineCyclePrev<CR>", opts)
                 map("n", "<leader>n", ":BufferLineCycleNext<CR>", opts)
                 map("n", "<leader>P", ":BufferLineMovePrev<CR>", opts)
@@ -103,9 +99,7 @@ return require("packer").startup({
             "famiu/bufdelete.nvim",
             config = function()
                 local map = vim.api.nvim_set_keymap
-                local opts = {
-                    noremap = true,
-                }
+                local opts = { noremap = true }
 
                 map("n", "<leader>q", ":Bdelete<CR>:NvimTreeRefresh<CR>", opts)
             end,
@@ -146,9 +140,7 @@ return require("packer").startup({
             requires = "nvim-lua/plenary.nvim",
             config = function()
                 local map = vim.api.nvim_set_keymap
-                local opts = {
-                    noremap = true,
-                }
+                local opts = { noremap = true }
 
                 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
                 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
@@ -209,9 +201,7 @@ return require("packer").startup({
             requires = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim" },
             config = function()
                 local map = vim.api.nvim_set_keymap
-                local opts = {
-                    noremap = true,
-                }
+                local opts = { noremap = true }
                 map("n", "<leader>g", "<cmd>Neogit kind=vsplit<CR>", opts)
 
                 require("neogit").setup({
@@ -358,9 +348,7 @@ return require("packer").startup({
             "mhartington/formatter.nvim",
             config = function()
                 local map = vim.api.nvim_set_keymap
-                local opts = {
-                    noremap = true,
-                }
+                local opts = { noremap = true }
                 map("n", "<leader>F", ":Format<CR>", opts)
 
                 require("formatter").setup({
