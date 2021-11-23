@@ -106,7 +106,7 @@ return require("packer").startup({
                     noremap = true,
                 }
 
-                map("n", "<leader>bq", ":Bdelete<CR>:NvimTreeRefresh<CR>", opts)
+                map("n", "<leader>q", ":Bdelete<CR>:NvimTreeRefresh<CR>", opts)
             end,
         })
 
