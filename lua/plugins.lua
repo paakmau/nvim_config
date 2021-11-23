@@ -26,8 +26,11 @@ return require("packer").startup({
                 g.nvim_tree_indent_markers = 1
                 g.nvim_tree_highlight_opened_files = 3
                 g.nvim_tree_group_empty = 1
-                g.nvim_tree_disable_window_picker = 1
                 g.nvim_tree_respect_buf_cwd = 1
+                g.nvim_tree_window_picker_exclude = {
+                    filetype = { "packer" },
+                    buftype = { "terminal", "nofile" },
+                }
 
                 local map = vim.api.nvim_set_keymap
                 local opts = { noremap = true }
