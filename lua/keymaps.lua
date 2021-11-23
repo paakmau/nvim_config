@@ -19,3 +19,8 @@ map("t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
 map("t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
 map("t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
 map("t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
+
+map("n", "<leader><", [[<C-w>2<]], opts)
+map("n", "<leader>>", [[<C-w>2>]], opts)
+map("n", "<leader>-", [[<C-w>2-]], opts)
+map("n", "<leader>+", [[<C-w>2+]], opts)
