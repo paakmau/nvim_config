@@ -36,6 +36,15 @@ return require("packer").startup({
                 local opts = { noremap = true }
                 map("n", "<leader>e", ":NvimTreeFocus<CR>:NvimTreeRefresh<CR>", opts)
 
+                vim.fn.pick_window = function()
+                    local target_winid = require("nvim-tree.lib").pick_window()
+                    if target_winid == -1 then
+                        target_winid = require("nvim-tree.lib").Tree.target_winid
+                    end
+                    vim.api.nvim_set_current_win(target_winid)
+                end
+                map("n", "<leader>i", ":lua vim.fn.pick_window()<CR>", opts)
+
                 require("nvim-tree").setup({
                     update_cwd = true,
                     update_focused_file = {
